@@ -10,10 +10,10 @@ angular.module('todomvc')
 		'use strict';
 
 		var todos = $scope.todos = store.todos;
-		var quote = $scope.quote = store.quote;
+		var quote = $scope.quote = store.quote = '.. loading ..';
         
 
-        while($scope.quote != null){
+        while($scope.quote != '.. loading ..' && $scope.quote != null){
         $http.get("http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1")
             .then(function(response) {
                 $scope.quote = response.data;
